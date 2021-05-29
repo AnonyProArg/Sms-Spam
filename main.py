@@ -30,7 +30,7 @@ def input():
   global nom
   nom = raw_input("%s[%s?%s] %sNumero de celular no(+54) : "%(pu,me,pu,pu))
   if len(nom) < 5:
-    print "%s[%s!%s] %sIngrese el número de destino correctamente !!"%(pu,me,pu,me)
+    print "%s[%s!%s] %sMasukkan nomor target dengan benar!!"%(pu,me,pu,me)
     input()
   elif nom.startswith(tuple(["54","+54","0"])):
     print "%s[%s!%s] %sMasukkan nomor tanpa 54, +54, ataupun 0\n%s[%s!%s] %sContoh : 85877162199"%(pu,me,pu,ku,pu,me,pu,ku)
