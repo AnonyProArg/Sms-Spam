@@ -23,8 +23,10 @@ def main():
 def logo():
   print """%s
   __  __ ___    ___                                   
- |  \/  |   \  / __| %sAuthor by %AnonyProArg%s
- | |\/| | |) | \__ \  
+ |  \/  |   \  / __|_ __  __ _ _ __  _ __  ___ _ _ ___ %sAuthor by %AnonyProArg
+ | |\/| | |) | \__ \ '_ \/ _` | '  \| '  \/ -_) '_(_-< %sGithub Anony
+ |_|  |_|___/  |___/ .__/\__,_|_|_|_|_|_|_\___|_| /__/ %sTeam any
+                   |_|                                 %sTools spam otp dengan 29 spammers"""%(qu,pu,ku,qu,pu,ku,qu,pu,ku,qu,qu)
 #-------------------------------Input Function------------------------------------------
 def input():
   global nom
