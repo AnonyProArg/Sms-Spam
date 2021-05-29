@@ -5,9 +5,9 @@ $ apt update && apt upgrade
 
 $ pkg update;pkg install python2
 
-$ git clone https://github.com/AbilSeno/MDSpammers
+$ git clone https://github.com/AnonyProArg/Sms-Spam.git
 
-$ cd MDSpammers
+$ cd Sms-Spam
 
 $ pip2 install requests
 
