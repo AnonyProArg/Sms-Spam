@@ -116,18 +116,18 @@ do
     read ch
     clear
     if [ $ch -eq 1 ];then
-        $PYTHON bomber.py --sms
+        $PYTHON SPAM.py --sms
         exit
     elif [ $ch -eq 2 ];then
-        $PYTHON bomber.py --call
+        $PYTHON SPAM.py --call
         exit
     elif [ $ch -eq 3 ];then
-        $PYTHON bomber.py --mail
+        $PYTHON SPAM.py --mail
         exit
     elif [ $ch -eq 4 ];then
         echo -e "\e[1;34m Descarga de archivos más recientes ..."
         rm -f .update
-        $PYTHON bomber.py --update
+        $PYTHON SPAM.py --update
         echo -e "\e[1;34m Iniciando Spam nuevamente..."
         pause
         exit
