@@ -188,7 +188,7 @@ def notifyen():
             url = "https://github.com/AnonyProArg/Sms-Spam/blob/main/.notify"
         noti = requests.get(url).text.upper()
         if len(noti) > 10:
-            mesgdcrt.SectionMessage("NOTIFICACION: " + noti)
+            mesgdcrt.SectionMessage("NOTIFICATION: " + noti)
             print()
     except Exception:
         pass
@@ -233,10 +233,10 @@ def pretty_print(cc, target, success, failed):
     mesgdcrt.SectionMessage("El SPAM está en curso. Tenga paciencia.")
     mesgdcrt.GeneralMessage(
         "Manténgase conectado a Internet durante el SPAM.")
-    mesgdcrt.GeneralMessage("Target       : " + cc + " " + target)
-    mesgdcrt.GeneralMessage("Sent         : " + str(requested))
-    mesgdcrt.GeneralMessage("Successful   : " + str(success))
-    mesgdcrt.GeneralMessage("Failed       : " + str(failed))
+    mesgdcrt.GeneralMessage("Objetivo       : " + cc + " " + target)
+    mesgdcrt.GeneralMessage("Procesados         : " + str(requested))
+    mesgdcrt.GeneralMessage("Exitosos   : " + str(success))
+    mesgdcrt.GeneralMessage("Fallados       : " + str(failed))
     mesgdcrt.WarningMessage(
         "Esta herramienta se creó solo con fines divertidos y de investigación.")
     mesgdcrt.SuccessMessage("SMS-SPAM fue creado por AbonyProArg")
@@ -259,7 +259,7 @@ def workernode(mode, cc, target, count, delay, max_threads):
         "Esta herramienta se creó solo con fines divertidos y de investigación.")
     print()
     input(mesgdcrt.CommandMessage(
-        "Presione [CTRL + Z] para suspender el bombardero o [ENTER] para reanudarlo"))
+        "Presione [CTRL + Z] para suspender el SPAM o [ENTER] para reanudarlo"))
 
     if len(APIProvider.api_providers) == 0:
         mesgdcrt.FailureMessage("Su país / objetivo aún no es compatible")
