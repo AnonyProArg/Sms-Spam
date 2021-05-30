@@ -234,8 +234,8 @@ def pretty_print(cc, target, success, failed):
     mesgdcrt.GeneralMessage(
         "Manténgase conectado a Internet durante el SPAM.")
     mesgdcrt.GeneralMessage("Objetivo       : " + cc + " " + target)
-    mesgdcrt.GeneralMessage("Procesados         : " + str(requested))
-    mesgdcrt.GeneralMessage("Exitosos   : " + str(success))
+    mesgdcrt.GeneralMessage("Procesados     : " + str(requested))
+    mesgdcrt.GeneralMessage("Exitosos       : " + str(success))
     mesgdcrt.GeneralMessage("Fallados       : " + str(failed))
     mesgdcrt.WarningMessage(
         "Esta herramienta se creó solo con fines divertidos y de investigación.")
@@ -249,9 +249,9 @@ def workernode(mode, cc, target, count, delay, max_threads):
     mesgdcrt.SectionMessage("Preparando el Spam: tenga paciencia")
     mesgdcrt.GeneralMessage(
         "Manténgase conectado a Internet durante el bombardeo.")
-    mesgdcrt.GeneralMessage("API Version   : " + api.api_version)
+    mesgdcrt.GeneralMessage("API Version    : " + api.api_version)
     mesgdcrt.GeneralMessage("Objetivo       : " + cc + target)
-    mesgdcrt.GeneralMessage("Cantidad        : " + str(count))
+    mesgdcrt.GeneralMessage("Cantidad       : " + str(count))
     mesgdcrt.GeneralMessage("Procesos       : " + str(max_threads) + " threads")
     mesgdcrt.GeneralMessage("Retraso        : " + str(delay) +
                             " Segundos")
