@@ -23,7 +23,7 @@ try:
     import requests
     from colorama import Fore, Style
 except ImportError:
-    print("\tSome dependencies could not be imported (possibly not installed)")
+    print("\tAlgunas dependencias no se pudieron importar (posiblemente no se instalaron)")
     print(
         "Type `pip3 install -r requirements.txt` to "
         " install all required packages")
@@ -73,7 +73,7 @@ def check_intr():
         requests.get("https://motherfuckingwebsite.com")
     except Exception:
         bann_text()
-        mesgdcrt.FailureMessage("Poor internet connection detected")
+        mesgdcrt.FailureMessage("Se detectó una mala conexión a Internet")
         sys.exit(2)
 
 
@@ -109,13 +109,13 @@ def do_zip_update():
                         shutil.copyfileobj(source, target)
             success = True
         except Exception:
-            mesgdcrt.FailureMessage("Error occured while extracting !!")
+            mesgdcrt.FailureMessage("Ocurrió un error al extraer !!")
     if success:
-        mesgdcrt.SuccessMessage("TBomb was updated to the latest version")
+        mesgdcrt.SuccessMessage("SMS-SPAM se actualizó a la última versión")
         mesgdcrt.GeneralMessage(
-            "Please run the script again to load the latest version")
+            "Ejecute el script nuevamente para cargar la última versión.")
     else:
-        mesgdcrt.FailureMessage("Unable to update TBomb.")
+        mesgdcrt.FailureMessage("No se puede actualizar ")
         mesgdcrt.WarningMessage(
             "Grab The Latest one From https://github.com/AnonyProArg/Sms-Spam.gitt")
 
@@ -142,13 +142,13 @@ def do_git_update():
     print("\n")
 
     if success:
-        mesgdcrt.SuccessMessage("TBomb was updated to the latest version")
+        mesgdcrt.SuccessMessage("SMS-SPAM se actualizó a la última versión")
         mesgdcrt.GeneralMessage(
-            "Please run the script again to load the latest version")
+            "Ejecute el script nuevamente para cargar la última versión.")
     else:
-        mesgdcrt.FailureMessage("Unable to update TBomb.")
-        mesgdcrt.WarningMessage("Make Sure To Install 'git' ")
-        mesgdcrt.GeneralMessage("Then run command:")
+        mesgdcrt.FailureMessage("No se puede actualiza.")
+        mesgdcrt.WarningMessage("Asegúrese de instalar 'git' ")
+        mesgdcrt.GeneralMessage("Entonces ejecuta el comando:")
         print(
             "git checkout . && "
             "git pull https://github.com/AnonyProArg/Sms-Spam.git HEAD")
@@ -165,19 +165,19 @@ def update():
 def check_for_updates():
     if DEBUG_MODE:
         mesgdcrt.WarningMessage(
-            "DEBUG MODE Enabled! Auto-Update check is disabled.")
+            "MODO DEPURACIÓN habilitado! La verificación de actualización automática está deshabilitada.")
         return
-    mesgdcrt.SectionMessage("Checking for updates")
+    mesgdcrt.SectionMessage("Comprobando actualizaciones")
     fver = requests.get(
         "https://raw.githubusercontent.com/AnonyProArg/Sms-Spam/main/.version"
     ).text.strip()
     if fver != __VERSION__:
-        mesgdcrt.WarningMessage("An update is available")
-        mesgdcrt.GeneralMessage("Starting update...")
+        mesgdcrt.WarningMessage("Hay una actualización disponible")
+        mesgdcrt.GeneralMessage("Iniciando actualización ...")
         update()
     else:
-        mesgdcrt.SuccessMessage("TBomb is up-to-date")
-        mesgdcrt.GeneralMessage("Starting TBomb")
+        mesgdcrt.SuccessMessage("SPAM-SMS está actualizado")
+        mesgdcrt.GeneralMessage("Iniciado")
 
 
 def notifyen():
@@ -210,8 +210,8 @@ def get_phone_info():
         target = format_phone(target)
         if ((len(target) <= 6) or (len(target) >= 12)):
             mesgdcrt.WarningMessage(
-                "The phone number ({target})".format(target=target) +
-                "that you have entered is invalid")
+                "El numero de telefono({target})".format(target=target) +
+                "que ha introducido no es válido")
             continue
         return (cc, target)
 
@@ -230,41 +230,41 @@ def get_mail_info():
 
 def pretty_print(cc, target, success, failed):
     requested = success+failed
-    mesgdcrt.SectionMessage("Bombing is in progress - Please be patient")
+    mesgdcrt.SectionMessage("El SPAM está en curso. Tenga paciencia.")
     mesgdcrt.GeneralMessage(
-        "Please stay connected to the internet during bombing")
+        "Manténgase conectado a Internet durante el SPAM.")
     mesgdcrt.GeneralMessage("Target       : " + cc + " " + target)
     mesgdcrt.GeneralMessage("Sent         : " + str(requested))
     mesgdcrt.GeneralMessage("Successful   : " + str(success))
     mesgdcrt.GeneralMessage("Failed       : " + str(failed))
     mesgdcrt.WarningMessage(
-        "This tool was made for fun and research purposes only")
-    mesgdcrt.SuccessMessage("TBomb was created by SpeedX")
+        "Esta herramienta se creó solo con fines divertidos y de investigación.")
+    mesgdcrt.SuccessMessage("SMS-SPAM fue creado por AbonyProArg")
 
 
 def workernode(mode, cc, target, count, delay, max_threads):
 
     api = APIProvider(cc, target, mode, delay=delay)
     clr()
-    mesgdcrt.SectionMessage("Gearing up the Bomber - Please be patient")
+    mesgdcrt.SectionMessage("Preparando el Spam: tenga paciencia")
     mesgdcrt.GeneralMessage(
-        "Please stay connected to the internet during bombing")
+        "Manténgase conectado a Internet durante el bombardeo.")
     mesgdcrt.GeneralMessage("API Version   : " + api.api_version)
-    mesgdcrt.GeneralMessage("Target        : " + cc + target)
-    mesgdcrt.GeneralMessage("Amount        : " + str(count))
-    mesgdcrt.GeneralMessage("Threads       : " + str(max_threads) + " threads")
-    mesgdcrt.GeneralMessage("Delay         : " + str(delay) +
-                            " seconds")
+    mesgdcrt.GeneralMessage("Objetivo       : " + cc + target)
+    mesgdcrt.GeneralMessage("Cantidad        : " + str(count))
+    mesgdcrt.GeneralMessage("Procesos       : " + str(max_threads) + " threads")
+    mesgdcrt.GeneralMessage("Retraso        : " + str(delay) +
+                            " Segundos")
     mesgdcrt.WarningMessage(
-        "This tool was made for fun and research purposes only")
+        "Esta herramienta se creó solo con fines divertidos y de investigación.")
     print()
     input(mesgdcrt.CommandMessage(
-        "Press [CTRL+Z] to suspend the bomber or [ENTER] to resume it"))
+        "Presione [CTRL + Z] para suspender el bombardero o [ENTER] para reanudarlo"))
 
     if len(APIProvider.api_providers) == 0:
-        mesgdcrt.FailureMessage("Your country/target is not supported yet")
-        mesgdcrt.GeneralMessage("Feel free to reach out to us")
-        input(mesgdcrt.CommandMessage("Press [ENTER] to exit"))
+        mesgdcrt.FailureMessage("Su país / objetivo aún no es compatible")
+        mesgdcrt.GeneralMessage("Siéntase libre de llegar a nosotros")
+        input(mesgdcrt.CommandMessage("Presione [ENTER] para salir"))
         bann_text()
         sys.exit()
 
@@ -279,9 +279,9 @@ def workernode(mode, cc, target, count, delay, max_threads):
                 result = job.result()
                 if result is None:
                     mesgdcrt.FailureMessage(
-                        "Bombing limit for your target has been reached")
-                    mesgdcrt.GeneralMessage("Try Again Later !!")
-                    input(mesgdcrt.CommandMessage("Press [ENTER] to exit"))
+                        "Se alcanzó el límite de SPAM para tu objetivo.")
+                    mesgdcrt.GeneralMessage("Inténtelo de nuevo más tarder !!")
+                    input(mesgdcrt.CommandMessage("Presione [ENTER] para salir"))
                     bann_text()
                     sys.exit()
                 if result:
@@ -291,7 +291,7 @@ def workernode(mode, cc, target, count, delay, max_threads):
                 clr()
                 pretty_print(cc, target, success, failed)
     print("\n")
-    mesgdcrt.SuccessMessage("Bombing completed!")
+    mesgdcrt.SuccessMessage("SPAM COMPLETO!")
     time.sleep(1.5)
     bann_text()
     sys.exit()
@@ -360,7 +360,7 @@ def selectnode(mode="sms"):
 
 mesgdcrt = MessageDecorator("icon")
 if sys.version_info[0] != 3:
-    mesgdcrt.FailureMessage("TBomb will work only in Python v3")
+    mesgdcrt.FailureMessage("SPAM will work only in Python v3")
     sys.exit()
 
 try:
@@ -370,7 +370,7 @@ except FileNotFoundError:
 
 
 __VERSION__ = get_version()
-__CONTRIBUTORS__ = ['SpeedX', 't0xic0der', 'scpketer', 'Stefan']
+__CONTRIBUTORS__ = ['AnonyProArg.', 'Ella', 'No', 'TeAma']
 
 ALL_COLORS = [Fore.GREEN, Fore.RED, Fore.YELLOW, Fore.BLUE,
               Fore.MAGENTA, Fore.CYAN, Fore.WHITE]
@@ -379,18 +379,18 @@ RESET_ALL = Style.RESET_ALL
 ASCII_MODE = False
 DEBUG_MODE = False
 
-description = """TBomb - Your Friendly Spammer Application
+description = """SPAM: su aplicación amigable para spam
 
-TBomb can be used for many purposes which incudes -
-\t Exposing the vulnerable APIs over Internet
-\t Friendly Spamming
-\t Testing Your Spam Detector and more ....
+SPAM-SMS se puede utilizar para muchos propósitos que incluyen:
+\ t Exponer las API vulnerables a través de Internet
+\ t Spam amistoso
+\ t Probar su detector de spam y más ...
 
-TBomb is not intented for malicious uses.
+SMS-SPAM No está destinado a usos maliciosos.
 """
 
 parser = argparse.ArgumentParser(description=description,
-                                 epilog='Coded by SpeedX !!!')
+                                 epilog='Coded by AnonyProArg !!!')
 parser.add_argument("-sms", "--sms", action="store_true",
                     help="start TBomb with SMS Bomb mode")
 parser.add_argument("-call", "--call", action="store_true",
@@ -400,7 +400,7 @@ parser.add_argument("-mail", "--mail", action="store_true",
 parser.add_argument("-ascii", "--ascii", action="store_true",
                     help="show only characters of standard ASCII set")
 parser.add_argument("-u", "--update", action="store_true",
-                    help="update TBomb")
+                    help="update SMS")
 parser.add_argument("-c", "--contributors", action="store_true",
                     help="show current TBomb contributors")
 parser.add_argument("-v", "--version", action="store_true",
@@ -437,12 +437,12 @@ if __name__ == "__main__":
                 bann_text()
                 print("Available Options:\n")
                 for key, value in avail_choice.items():
-                    print("[ {key} ] {value} BOMB".format(key=key,
+                    print("[ {key} ] {value} SPAM".format(key=key,
                                                           value=value))
                 print()
-                choice = input(mesgdcrt.CommandMessage("Enter Choice : "))
+                choice = input(mesgdcrt.CommandMessage("Ingrese EleccióN : "))
             selectnode(mode=avail_choice[choice].lower())
         except KeyboardInterrupt:
-            mesgdcrt.WarningMessage("Received INTR call - Exiting...")
+            mesgdcrt.WarningMessage("Llamada INTR recibida - Saliendo ....")
             sys.exit()
     sys.exit()
