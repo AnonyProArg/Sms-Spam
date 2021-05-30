@@ -85,7 +85,7 @@ def format_phone(num):
 def do_zip_update():
     success = False
     if DEBUG_MODE:
-        zip_url = no"
+        zip_url = "no"
         dir_name = "no"
     else:
         zip_url = "nop"
