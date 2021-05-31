@@ -1,6 +1,5 @@
 #!/bin/bash
 cd /etc/VPS-ARG/Sms-Spam
-cd /etc/VPS-ARG/Sms-Spam
  
 detect_distro() {
     if [[ "$OSTYPE" == linux-android* ]]; then
@@ -80,7 +79,7 @@ install_deps(){
         for package in ${packages[@]}; do
             $SUDO $INSTALL $package
         done
-        $PIP install -r requirements.txt
+        $PIP install -r /etc/VPS-ARG/Sms-Spam/requirements.txt
     else
         echo "No pudimos instalar dependencias."
         echo "Asegúrese de tener git, python3, pip3 y los requisitos instalados."
