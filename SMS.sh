@@ -1,5 +1,6 @@
 #!/bin/bash
 cd /etc/VPS-ARG/Sms-Spam
+cd /etc/VPS-ARG/Sms-Spam
  
 detect_distro() {
     if [[ "$OSTYPE" == linux-android* ]]; then
