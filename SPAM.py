@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+cd /etc/VPS-ARG/Sms-Spam
 
 import os
 import shutil
